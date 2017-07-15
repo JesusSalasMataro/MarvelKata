@@ -1,12 +1,12 @@
 class StuartComicsImportSystem {
 
-	constructor(marvelImportSystem, comicsMapper) {
-		this._marvelImportSystem = marvelImportSystem;
+	constructor(marvelImportService, comicsMapper) {
+		this._marvelImportService = marvelImportService;
 		this._comicsMapper = comicsMapper;
 	}
 
 	getComicsFromMarvel() {
-		let marvelComics = this._marvelImportSystem.getComics();
+		let marvelComics = this._marvelImportService.getComics();
 		let stuartComics = this._comicsMapper.toStuartComics(marvelComics);
 
 		return stuartComics;

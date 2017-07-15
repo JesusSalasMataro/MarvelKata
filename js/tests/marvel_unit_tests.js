@@ -3,8 +3,8 @@ describe("Return comics from Marvel api and convert them to Stuart comics", func
     let _sut;
 
     beforeEach(function() {
-        marvelImportSystem = jasmine.createSpyObj('marvelImportSystem', ['getComics']);
-        marvelImportSystem.getComics.and.callFake(function() {
+        marvelImportService = jasmine.createSpyObj('marvelImportService', ['getComics']);
+        marvelImportService.getComics.and.callFake(function() {
             return { 
                 "comics": [
                     {
@@ -36,7 +36,7 @@ describe("Return comics from Marvel api and convert them to Stuart comics", func
             );
         });
 
-        _sut = new StuartComicsImportSystem(marvelImportSystem, comicsMapper);             
+        _sut = new StuartComicsImportSystem(marvelImportService, comicsMapper);             
     });
 
     it("receive Stuart comics from Stuart comics import system", function() {
