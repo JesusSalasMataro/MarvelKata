@@ -6,7 +6,7 @@ describe("Return comics from Marvel api and convert them to Stuart comics", func
         marvelImportService = jasmine.createSpyObj('marvelImportService', ['getComics']);
         marvelImportService.getComics.and.callFake(function() {
             return { 
-                "comics": [
+                "results": [
                     {
                         id: 1, 
                         title: "Hulk", 
