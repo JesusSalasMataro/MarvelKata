@@ -16,7 +16,7 @@ describe("Given an array of Marvel comics convert them to Stuart comics", functi
                         title: "Hulk", 
                         thumbnail: {
                             path: "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available", 
-                            extension: ""
+                            extension: ".jpg"
                         }, 
                         prices: [
                             {
@@ -29,7 +29,7 @@ describe("Given an array of Marvel comics convert them to Stuart comics", functi
             };
 
         // ACT        
-        let stuartComics = _sut.toStuartComics(marvelComics);
+        let stuartComics = _sut.toStuartComics(marvelComics.comics);
 
         // ASSERT
         expect(stuartComics.length).toBeGreaterThan(0);
