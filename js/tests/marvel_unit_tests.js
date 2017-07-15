@@ -3,13 +3,46 @@ describe("Return comics from Marvel api and convert them to Stuart comics", func
     let _sut;
 
     beforeEach(function() {
-        _sut = new StuartComicsImportSystem();        
+        marvelImportSystem = jasmine.createSpyObj('marvelImportSystem', ['getComics']);
+        marvelImportSystem.getComics.and.callFake(function() {
+            return { 
+                "comics": [
+                    {
+                        id: 1, 
+                        title: "Hulk", 
+                        thumbnail: {
+                            path: "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available", 
+                            extension: ""
+                        }, 
+                        prices: [
+                            {
+                                type: "printPrice",
+                                price: 20
+                            }
+                        ]
+                    }
+                ]
+            };
+        });
+
+        comicsMapper = jasmine.createSpyObj('comicsMapper', ['toStuartComics']);
+        comicsMapper.toStuartComics.and.callFake(function() {
+            return new Array(
+                    {
+                        title: "Hulk",
+                        thumbnailUrl: "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available",
+                        price: 20
+                    }
+            );
+        });
+
+        _sut = new StuartComicsImportSystem(marvelImportSystem, comicsMapper);             
     });
 
     it("receive Stuart comics from Stuart comics import system", function() {
         // ARRANGE
 
-        // ACT
+        // ACT        
         let stuartComics = _sut.getComicsFromMarvel();
 
         // ASSERT
