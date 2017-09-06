@@ -1,0 +1,25 @@
+{
+  "name": "marvelkata",
+  "version": "1.0.0",
+  "description": "Marvel Kata",
+  "main": "karma.conf.js",
+  "scripts": {
+    "test": "karma start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JesusSalasMataro/MarvelKata.git"
+  },
+  "author": "Jesús Salas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JesusSalasMataro/MarvelKata/issues"
+  },
+  "homepage": "https://github.com/JesusSalasMataro/MarvelKata#readme",
+  "dependencies": {
+    "jasmine-core": "^2.8.0",
+    "karma": "^1.7.1",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-jasmine": "^1.1.0"
+  }
+}
