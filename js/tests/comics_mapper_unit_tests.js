@@ -1,3 +1,5 @@
+import ComicsMapper from '../comicsMapper.js';
+
 describe("Given an array of Marvel comics convert them to Stuart comics", function() {
  
     let _sut;
@@ -8,7 +10,7 @@ describe("Given an array of Marvel comics convert them to Stuart comics", functi
 
     it("when receive Marvel comics return Stuart Comics", function() {
         // ARRANGE
-        marvelComics = 
+        const marvelComics = 
             { 
                 "comics": [
                     {
@@ -29,7 +31,7 @@ describe("Given an array of Marvel comics convert them to Stuart comics", functi
             };
 
         // ACT        
-        let stuartComics = _sut.toStuartComics(marvelComics.comics);
+        const stuartComics = _sut.toStuartComics(marvelComics.comics);
 
         // ASSERT
         expect(stuartComics.length).toBeGreaterThan(0);

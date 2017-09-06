@@ -1,3 +1,5 @@
+import MarvelImportService from '../marvelImportService.js';
+
 describe("Return comics from Marvel api, test connection", function() {
  
     let _sut;

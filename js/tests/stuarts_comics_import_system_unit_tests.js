@@ -1,9 +1,13 @@
+import ComicsMapper from '../comicsMapper.js';
+import MarvelImportService from '../marvelImportService.js';
+import StuartComicsImportSystem from '../stuartComicsImportSystem.js';
+
 describe("Return comics from Marvel api and convert them to Stuart comics", function() {
  
     let _sut;
 
     beforeEach(function() {
-        marvelImportService = jasmine.createSpyObj('marvelImportService', ['getComics']);
+        const marvelImportService = jasmine.createSpyObj('marvelImportService', ['getComics']);
         marvelImportService.getComics.and.callFake(function() {
             return { 
                 "results": [
@@ -25,7 +29,7 @@ describe("Return comics from Marvel api and convert them to Stuart comics", func
             };
         });
 
-        comicsMapper = jasmine.createSpyObj('comicsMapper', ['toStuartComics']);
+        const comicsMapper = jasmine.createSpyObj('comicsMapper', ['toStuartComics']);
         comicsMapper.toStuartComics.and.callFake(function() {
             return new Array(
                     {
@@ -43,7 +47,7 @@ describe("Return comics from Marvel api and convert them to Stuart comics", func
         // ARRANGE
 
         // ACT        
-        let stuartComics = _sut.getComicsFromMarvel();
+        const stuartComics = _sut.getComicsFromMarvel();
 
         // ASSERT
         expect(stuartComics.length).toBeGreaterThan(0);

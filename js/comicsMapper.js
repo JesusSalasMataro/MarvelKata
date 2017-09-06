@@ -5,7 +5,7 @@ class ComicsMapper {
 	}
 
 	_convertToStuartComic(marvelComic) {
-		let stuartComic = 
+		const stuartComic = 
 	        {
 	            title: marvelComic.title,
 	            thumbnailUrl: marvelComic.thumbnail.path + marvelComic.thumbnail.extension,
@@ -15,3 +15,5 @@ class ComicsMapper {
 	    return stuartComic;
 	}
 }
+
+export { ComicsMapper as default };

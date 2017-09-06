@@ -6,12 +6,14 @@ class StuartComicsImportSystem {
 	}
 
 	getComicsFromMarvel() {
-		let marvelComics = this._marvelImportService.getComics();
-		let stuartComics = this._comicsMapper.toStuartComics(marvelComics);
+		const marvelComics = this._marvelImportService.getComics();
+		const stuartComics = this._comicsMapper.toStuartComics(marvelComics);
 
 		return stuartComics;
 	}
 }
+
+export { StuartComicsImportSystem as default };
 
 
 

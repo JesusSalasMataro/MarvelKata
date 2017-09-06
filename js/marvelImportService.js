@@ -9,7 +9,7 @@ class MarvelImportService {
 	}
 
 	getComics() {
-		let urlComics = this._createUrlComics();
+		const urlComics = this._createUrlComics();
 
 		return fetch(urlComics)
 			.then(function(response) {
@@ -40,3 +40,5 @@ class MarvelImportService {
 		return hash;
 	}
 }
+
+export { MarvelImportService as default };
